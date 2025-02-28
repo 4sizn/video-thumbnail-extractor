@@ -76,6 +76,8 @@ export function generateVideoThumbnail(
       URL.revokeObjectURL(video.src);
     }
 
+    video.remove();
+
     // video.src = "";
     // video.load();
   });
