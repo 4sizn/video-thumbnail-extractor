@@ -66,11 +66,7 @@ export function generateVideoThumbnail(
 
     // 썸네일 이미지 URL 생성
     const thumbnailUrl = canvas.toDataURL(type, quality);
-
-    // 콜백 함수 호출하여 썸네일 URL 전달
-    if (typeof callback === "function") {
-      callback(thumbnailUrl, video.duration);
-    }
+    callback(thumbnailUrl, video.duration);
 
     // 메모리 해제
     video.pause();
@@ -80,8 +76,8 @@ export function generateVideoThumbnail(
       URL.revokeObjectURL(video.src);
     }
 
-    video.src = "";
-    video.load();
+    // video.src = "";
+    // video.load();
   });
 
   // 오류 처리
